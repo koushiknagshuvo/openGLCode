@@ -1,3 +1,5 @@
+// initial template for c++
+
 #include <windows.h>
 #include <GL/glut.h>
 #include <stdlib.h>
@@ -8,6 +10,10 @@
 void display(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(1.0, 0, 0); //int color values নেওয়ার জন্য
+    glBegin(GL_POLYGON);
+
+    glutSolidTorus(1, 20, 10, 100);
 
 }
 
