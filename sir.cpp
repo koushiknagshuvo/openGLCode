@@ -1,4 +1,4 @@
-
+// sir 
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdlib.h>
