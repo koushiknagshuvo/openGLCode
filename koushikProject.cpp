@@ -9,14 +9,6 @@ float PI = 3.1416;
 static float cloud1 = -20, ty = 0;
 
 
-void boatMove()
-{
-    shift += 0.01;
-    //if(shift > 200)
-       // shift = 0;
-    shift = (shift > 200) ? 0 : shift;
-    glutPostRedisplay();
-}
 
 void circle(GLfloat rx, GLfloat ry, GLfloat x, GLfloat y)
 {
@@ -591,7 +583,7 @@ void street_light_design() {
 }
 
 void boot_vartex() {
-    glColor3f(1.0, 0.0, 0.0);
+    glColor3ub(245, 0, 78);
     glBegin(GL_POLYGON);
     glVertex2f(45 + shift, 20);
     glVertex2f(5 + shift, 20);
@@ -600,7 +592,7 @@ void boot_vartex() {
 
     glEnd();
 
-    glColor3f(0.160, 0.658, 0.203);
+    glColor3ub(245, 0, 78);
     glBegin(GL_POLYGON);
     glVertex2f(25 + shift, 30);
     glVertex2f(25 + shift, 25);
@@ -609,7 +601,7 @@ void boot_vartex() {
     glEnd();
 
     // fourth regular shape is octagon
-    glColor3f(0.0, 0.0, 0.0);
+    glColor3ub(23, 32, 42);
     glBegin(GL_POLYGON);
     glVertex2f(25 + shift, 25.0);
     glVertex2f(25 + shift, 20);
@@ -617,6 +609,15 @@ void boot_vartex() {
     glVertex2f(23 + shift, 25);
 
     glEnd();
+}
+
+void boatMove()
+{
+    shift += 0.01;
+    //if(shift > 200)
+       // shift = 0;
+    shift = (shift > 200) ? 0 : shift;
+    glutPostRedisplay();
 }
 
 void display(void) {
@@ -658,10 +659,6 @@ void display(void) {
     glPushMatrix();
 
     // Draw moving boat
-
-
-
-
 
     glFlush();
 }
