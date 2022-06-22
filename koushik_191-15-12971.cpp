@@ -9,6 +9,14 @@ float PI = 3.1416;
 static float cloud1 = -20, ty = 0;
 
 
+void boatMove()
+{
+    shift += 0.005;
+    //if(shift > 200)
+       // shift = 0;
+    shift = (shift > 200) ? 0 : shift;
+    glutPostRedisplay();
+}
 
 void circle(GLfloat rx, GLfloat ry, GLfloat x, GLfloat y)
 {
@@ -64,9 +72,9 @@ void sky() {
     glVertex2d(0, 100);
     glEnd();
 
-    //Sun 
+    //Sun
     glColor3ub(255, 165, 0);
-    circle(5, 9, 12, 90);
+    circle(3, 5, 12, 90);
 
 
     //clouds
@@ -107,7 +115,7 @@ void road() {
 
 }
 
-// DT builldings 
+// DT builldings
 void diu_DT_Building() {
 
     // Building staircase
@@ -129,7 +137,6 @@ void diu_DT_Building() {
     glEnd();
 
     // Building rooftop
-
     glBegin(GL_QUADS);
     glColor3ub(255, 250, 250);
     glVertex2d(20, 70);
@@ -140,8 +147,6 @@ void diu_DT_Building() {
 
 
     // Building side design
-
-
     glBegin(GL_QUADS);
     glColor3ub(32, 189, 0);
     glVertex2d(21, 33);
@@ -470,8 +475,7 @@ void traffic_light_design() {
     glEnd();
 
 
-    // light 
-
+    // light
     glColor3ub(233, 31, 9);
     circle(2, 4, 93, 65);
 
@@ -507,6 +511,7 @@ void tree() {
     glVertex2f(13, 75);
     glEnd();
     // tree1 end
+
     //tree2 start
     glBegin(GL_QUADS);
     glColor3ub(23, 32, 42);
@@ -603,44 +608,174 @@ void street_light_design() {
     glVertex2f(17, 42);
     glVertex2f(16, 42);
     glEnd();
+
 }
 
-void boot_vartex() {
-    glColor3ub(245, 0, 78);
+void bus_vartex() {
+
+    glPushMatrix();
+    boatMove();
+
+    //bus
+    glColor3f(1.0, 0.0, 0.0);
     glBegin(GL_POLYGON);
-    glVertex2f(45 + shift, 20);
-    glVertex2f(5 + shift, 20);
+    glVertex2f(30 + shift, 20);
+    glVertex2f(15 + shift, 20);
     glVertex2f(15 + shift, 10);
-    glVertex2f(35 + shift, 10);
-
+    glVertex2f(30 + shift, 10);
     glEnd();
 
-    glColor3ub(245, 0, 78);
+    //window1
+    glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
-    glVertex2f(25 + shift, 30);
-    glVertex2f(25 + shift, 25);
-    glVertex2f(17.943 + shift, 25.019);
-
+    glVertex2f(19 + shift, 18);
+    glVertex2f(17 + shift, 18);
+    glVertex2f(17 + shift, 15);
+    glVertex2f(19 + shift, 15);
     glEnd();
 
-    // fourth regular shape is octagon
-    glColor3ub(23, 32, 42);
+    //2nd window
+    glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
-    glVertex2f(25 + shift, 25.0);
-    glVertex2f(25 + shift, 20);
-    glVertex2f(23 + shift, 20);
-    glVertex2f(23 + shift, 25);
-
+    glVertex2f(22 + shift, 18);
+    glVertex2f(20 + shift, 18);
+    glVertex2f(20 + shift, 15);
+    glVertex2f(22 + shift, 15);
     glEnd();
-}
 
-void boatMove()
-{
-    shift += 0.01;
-    //if(shift > 200)
-       // shift = 0;
-    shift = (shift > 200) ? 0 : shift;
-    glutPostRedisplay();
+    //3rd window
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(25 + shift, 18);
+    glVertex2f(23 + shift, 18);
+    glVertex2f(23 + shift, 15);
+    glVertex2f(25 + shift, 15);
+    glEnd();
+
+    //4th window
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(28 + shift, 18);
+    glVertex2f(26 + shift, 18);
+    glVertex2f(26 + shift, 15);
+    glVertex2f(29 + shift, 15);
+    glEnd();
+
+    //micro down part
+    glColor3f(0.0, 0.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(59 + shift, 15);
+    glVertex2f(52 + shift, 15);
+    glVertex2f(52 + shift, 10);
+    glVertex2f(60 + shift, 10);
+    glEnd();
+
+    //micro up part
+    glColor3f(1.0, 0.0, 0.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(57 + shift, 20);
+    glVertex2f(54 + shift, 20);
+    glVertex2f(53 + shift, 15);
+    glVertex2f(58 + shift, 15);
+    glEnd();
+
+    //micro up back part
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(55.5 + shift, 19);
+    glVertex2f(54 + shift, 19);
+    glVertex2f(53.5 + shift, 15.5);
+    glVertex2f(55.5 + shift, 15.5);
+    glEnd();
+
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(57 + shift, 19);
+    glVertex2f(55.7 + shift, 19);
+    glVertex2f(55.7 + shift, 15.5);
+    glVertex2f(57.5 + shift, 15.5);
+    glEnd();
+
+    //2nd bus
+    glColor3f(139, 0, 139);
+    glBegin(GL_POLYGON);
+    glVertex2f(0 + shift, 20);
+    glVertex2f(-15 + shift, 20);
+    glVertex2f(-15 + shift, 10);
+    glVertex2f(0 + shift, 10);
+    glEnd();
+
+    //1st window
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(-11 + shift, 18);
+    glVertex2f(-13 + shift, 18);
+    glVertex2f(-13 + shift, 15);
+    glVertex2f(-11 + shift, 15);
+    glEnd();
+
+    //2nd window
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(-8 + shift, 18);
+    glVertex2f(-10 + shift, 18);
+    glVertex2f(-10 + shift, 15);
+    glVertex2f(-8 + shift, 15);
+    glEnd();
+
+    //3rd window
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(-5 + shift, 18);
+    glVertex2f(-7 + shift, 18);
+    glVertex2f(-7 + shift, 15);
+    glVertex2f(-5 + shift, 15);
+    glEnd();
+
+    //4th window
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_POLYGON);
+    glVertex2f(-2 + shift, 18);
+    glVertex2f(-4 + shift, 18);
+    glVertex2f(-4 + shift, 15);
+    glVertex2f(-1 + shift, 15);
+    glEnd();
+
+    //1st bus circle
+    glTranslatef(cloud1, 0, 0);
+    glColor3f(1, 1, 1);
+    circle(1, 1, 38, 10);
+    glColor3ub(0, 0, 0);
+    circle(0.5, 0.5, 38, 10);
+
+    glColor3f(1, 1, 1);
+    circle(1, 1, 45.5, 10);
+    glColor3ub(0, 0, 0);
+    circle(0.5, 0.5, 45.5, 10);
+
+    //micro back cycle
+    glColor3f(255, 228, 181);
+    circle(0.8, 0.8, 74, 10);
+
+
+    //micro face circle
+    glColor3f(255, 228, 181);
+    circle(0.8, 0.8, 78, 10);
+
+    //2nd bus circle
+    glColor3f(1, 1, 1);
+    circle(1, 1, 8, 10);
+    glColor3f(0, 0, 0);
+    circle(0.5, 0.5, 8, 10);
+
+    glColor3f(1, 1, 1);
+    circle(1, 1, 16, 10);
+    glColor3f(0, 0, 0);
+    circle(0.5, 0.5, 16, 10);
+
+    glPopMatrix();
+    glEnd();
+
 }
 
 void display(void) {
@@ -667,20 +802,16 @@ void display(void) {
     tree();
     street_light_design();
 
-    // রাস্তার পানি 
-    glColor3ub(3, 144, 248);
+    //road
+    glColor3ub(0, 0, 0);
     glBegin(GL_POLYGON);
     glVertex2f(0, 0);
     glVertex2f(0, 18);
     glVertex2f(150, 18);
     glVertex2f(150, 0);
     glEnd();
-    // রাস্তার পানি 
 
-    boatMove();
-    boot_vartex();
-
-    glPushMatrix();
+    bus_vartex();
     glFlush();
 }
 
